@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 04:59:54 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Fri Mar  6 14:54:54 2026
+# Process ID: 1679
+# Current directory: /home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.runs/impl_1
+# Command line: vivado -log cw305_top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source cw305_top.tcl -notrace
+# Log file: /home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.runs/impl_1/cw305_top.vdi
+# Journal file: /home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.runs/impl_1/vivado.jou
+# Running On: 47d8709a4d53, OS: Linux, CPU Frequency: , CPU Physical cores: 1, Host memory: 16748 MB
+#-----------------------------------------------------------
+source cw305_top.tcl -notrace
