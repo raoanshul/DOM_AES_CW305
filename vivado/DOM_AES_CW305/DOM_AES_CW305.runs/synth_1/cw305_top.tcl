@@ -80,7 +80,7 @@ set_param synth.vivado.isSynthRun true
 set_property webtalk.parent_dir /home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.cache/wt [current_project]
 set_property parent.project_path /home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
-set_property target_language VHDL [current_project]
+set_property target_language Verilog [current_project]
 set_property ip_output_repo /home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
@@ -127,6 +127,8 @@ read_xdc /home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.srcs/constr
 set_property used_in_implementation false [get_files /home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.srcs/constrs_1/new/cw305.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
+
+read_checkpoint -auto_incremental -incremental /home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.srcs/utils_1/imports/synth_1/cw305_top.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
