@@ -9,122 +9,123 @@
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 
 source cw305_top.tcl -notrace
-Command: read_checkpoint -auto_incremental -incremental /home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.srcs/utils_1/imports/synth_1/cw305_top.dcp
-INFO: [Vivado 12-5825] Read reference checkpoint from /home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.srcs/utils_1/imports/synth_1/cw305_top.dcp for incremental synthesis
+Command: read_checkpoint -auto_incremental -incremental /home/raoar/RP_WS/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.srcs/utils_1/imports/synth_1/cw305_top.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from /home/raoar/RP_WS/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.srcs/utils_1/imports/synth_1/cw305_top.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
-Command: synth_design -top cw305_top -part xc7a35tftg256-2
+Command: synth_design -top cw305_top -part xc7a100tftg256-2
 Starting synth_design
-Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
-INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
-INFO: [Device 21-403] Loading part xc7a35tftg256-2
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Vivado_Tcl 4-1810] synth_design options have changed between reference and incremental; A full resynthesis will be run
+INFO: [Device 21-403] Loading part xc7a100tftg256-2
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 29317
-INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/home/user/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
-WARNING: [Synth 8-6901] identifier 'isout' is used before its declaration [/home/user/DOM_AES_CW305/hdl/cw305_top.v:91]
+INFO: [Synth 8-7075] Helper process launched with PID 3152896
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/cad/xilinx/vivado2022.2/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+WARNING: [Synth 8-6901] identifier 'isout' is used before its declaration [/home/raoar/RP_WS/DOM_AES_CW305/hdl/cw305_top.v:91]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2630.676 ; gain = 378.109 ; free physical = 10623 ; free virtual = 15871
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1675.351; parent = 1388.446; children = 286.904
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 4873.309; parent = 2630.711; children = 2242.598
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2990.434 ; gain = 378.688 ; free physical = 71665 ; free virtual = 107369
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2169.148; parent = 1957.489; children = 211.659
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4584.582; parent = 2993.406; children = 1591.176
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'cw305_top' [/home/user/DOM_AES_CW305/hdl/cw305_top.v:32]
-INFO: [Synth 8-6157] synthesizing module 'cw305_usb_reg_fe' [/home/user/DOM_AES_CW305/hdl/cw305_usb_reg_fe.v:31]
+INFO: [Synth 8-6157] synthesizing module 'cw305_top' [/home/raoar/RP_WS/DOM_AES_CW305/hdl/cw305_top.v:32]
+INFO: [Synth 8-6157] synthesizing module 'cw305_usb_reg_fe' [/home/raoar/RP_WS/DOM_AES_CW305/hdl/cw305_usb_reg_fe.v:31]
 	Parameter pADDR_WIDTH bound to: 21 - type: integer 
 	Parameter pBYTECNT_SIZE bound to: 7 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'cw305_usb_reg_fe' (0#1) [/home/user/DOM_AES_CW305/hdl/cw305_usb_reg_fe.v:31]
-INFO: [Synth 8-6157] synthesizing module 'cw305_reg_aes' [/home/user/DOM_AES_CW305/hdl/cw305_reg_aes.v:33]
+INFO: [Synth 8-6155] done synthesizing module 'cw305_usb_reg_fe' (0#1) [/home/raoar/RP_WS/DOM_AES_CW305/hdl/cw305_usb_reg_fe.v:31]
+INFO: [Synth 8-6157] synthesizing module 'cw305_reg_aes' [/home/raoar/RP_WS/DOM_AES_CW305/hdl/cw305_reg_aes.v:33]
 	Parameter pADDR_WIDTH bound to: 21 - type: integer 
 	Parameter pBYTECNT_SIZE bound to: 7 - type: integer 
 	Parameter pPT_WIDTH bound to: 128 - type: integer 
 	Parameter pCT_WIDTH bound to: 128 - type: integer 
 	Parameter pKEY_WIDTH bound to: 128 - type: integer 
-INFO: [Synth 8-155] case statement is not full and has no default [/home/user/DOM_AES_CW305/hdl/cw305_reg_aes.v:182]
-INFO: [Synth 8-6157] synthesizing module 'cdc_pulse' [/home/user/DOM_AES_CW305/hdl/cdc_pulse.v:24]
-INFO: [Synth 8-6155] done synthesizing module 'cdc_pulse' (0#1) [/home/user/DOM_AES_CW305/hdl/cdc_pulse.v:24]
-INFO: [Synth 8-6157] synthesizing module 'USR_ACCESSE2' [/home/user/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:135289]
-INFO: [Synth 8-6155] done synthesizing module 'USR_ACCESSE2' (0#1) [/home/user/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:135289]
-INFO: [Synth 8-6155] done synthesizing module 'cw305_reg_aes' (0#1) [/home/user/DOM_AES_CW305/hdl/cw305_reg_aes.v:33]
-INFO: [Synth 8-6157] synthesizing module 'clocks' [/home/user/DOM_AES_CW305/hdl/clocks.v:32]
-INFO: [Synth 8-6157] synthesizing module 'BUFGMUX_CTRL' [/home/user/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:1210]
-INFO: [Synth 8-6155] done synthesizing module 'BUFGMUX_CTRL' (0#1) [/home/user/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:1210]
-INFO: [Synth 8-6157] synthesizing module 'ODDR' [/home/user/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:94268]
-INFO: [Synth 8-6155] done synthesizing module 'ODDR' (0#1) [/home/user/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:94268]
-INFO: [Synth 8-6157] synthesizing module 'IBUFG' [/home/user/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:71820]
-INFO: [Synth 8-6155] done synthesizing module 'IBUFG' (0#1) [/home/user/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:71820]
-INFO: [Synth 8-6157] synthesizing module 'BUFG' [/home/user/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:1082]
-INFO: [Synth 8-6155] done synthesizing module 'BUFG' (0#1) [/home/user/Xilinx/Vivado/2022.2/scripts/rt/data/unisim_comp.v:1082]
-INFO: [Synth 8-6155] done synthesizing module 'clocks' (0#1) [/home/user/DOM_AES_CW305/hdl/clocks.v:32]
-INFO: [Synth 8-6157] synthesizing module 'aes_dom_wrapper' [/home/user/DOM_AES_CW305/hdl/aes_dom_wrapper.v:22]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/raoar/RP_WS/DOM_AES_CW305/hdl/cw305_reg_aes.v:182]
+INFO: [Synth 8-6157] synthesizing module 'cdc_pulse' [/home/raoar/RP_WS/DOM_AES_CW305/hdl/cdc_pulse.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'cdc_pulse' (0#1) [/home/raoar/RP_WS/DOM_AES_CW305/hdl/cdc_pulse.v:24]
+INFO: [Synth 8-6157] synthesizing module 'USR_ACCESSE2' [/cad/xilinx/vivado2022.2/Vivado/2022.2/scripts/rt/data/unisim_comp.v:135289]
+INFO: [Synth 8-6155] done synthesizing module 'USR_ACCESSE2' (0#1) [/cad/xilinx/vivado2022.2/Vivado/2022.2/scripts/rt/data/unisim_comp.v:135289]
+INFO: [Synth 8-6155] done synthesizing module 'cw305_reg_aes' (0#1) [/home/raoar/RP_WS/DOM_AES_CW305/hdl/cw305_reg_aes.v:33]
+INFO: [Synth 8-6157] synthesizing module 'clocks' [/home/raoar/RP_WS/DOM_AES_CW305/hdl/clocks.v:32]
+INFO: [Synth 8-6157] synthesizing module 'BUFGMUX_CTRL' [/cad/xilinx/vivado2022.2/Vivado/2022.2/scripts/rt/data/unisim_comp.v:1210]
+INFO: [Synth 8-6155] done synthesizing module 'BUFGMUX_CTRL' (0#1) [/cad/xilinx/vivado2022.2/Vivado/2022.2/scripts/rt/data/unisim_comp.v:1210]
+INFO: [Synth 8-6157] synthesizing module 'ODDR' [/cad/xilinx/vivado2022.2/Vivado/2022.2/scripts/rt/data/unisim_comp.v:94268]
+INFO: [Synth 8-6155] done synthesizing module 'ODDR' (0#1) [/cad/xilinx/vivado2022.2/Vivado/2022.2/scripts/rt/data/unisim_comp.v:94268]
+INFO: [Synth 8-6157] synthesizing module 'IBUFG' [/cad/xilinx/vivado2022.2/Vivado/2022.2/scripts/rt/data/unisim_comp.v:71820]
+INFO: [Synth 8-6155] done synthesizing module 'IBUFG' (0#1) [/cad/xilinx/vivado2022.2/Vivado/2022.2/scripts/rt/data/unisim_comp.v:71820]
+INFO: [Synth 8-6157] synthesizing module 'BUFG' [/cad/xilinx/vivado2022.2/Vivado/2022.2/scripts/rt/data/unisim_comp.v:1082]
+INFO: [Synth 8-6155] done synthesizing module 'BUFG' (0#1) [/cad/xilinx/vivado2022.2/Vivado/2022.2/scripts/rt/data/unisim_comp.v:1082]
+INFO: [Synth 8-6155] done synthesizing module 'clocks' (0#1) [/home/raoar/RP_WS/DOM_AES_CW305/hdl/clocks.v:32]
+INFO: [Synth 8-6157] synthesizing module 'aes_dom_wrapper' [/home/raoar/RP_WS/DOM_AES_CW305/hdl/aes_dom_wrapper.v:22]
 	Parameter pPT_WIDTH bound to: 128 - type: integer 
 	Parameter pKEY_WIDTH bound to: 128 - type: integer 
 	Parameter pCT_WIDTH bound to: 128 - type: integer 
 	Parameter N bound to: 1 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'aes_dom_verilog_wrapper' [/home/user/DOM_AES_CW305/hdl/aes_dom_verilog_wrapper.vhdl:66]
+INFO: [Synth 8-638] synthesizing module 'aes_dom_verilog_wrapper' [/home/raoar/RP_WS/DOM_AES_CW305/hdl/aes_dom_verilog_wrapper.vhdl:66]
 	Parameter N bound to: 1 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'aes_top' [/home/user/DOM_AES_CW305/hdl/aes_top.vhdl:88]
+INFO: [Synth 8-638] synthesizing module 'aes_top' [/home/raoar/RP_WS/DOM_AES_CW305/hdl/aes_top.vhdl:88]
 	Parameter PERFECTLY_INTERLEAVED bound to: yes - type: string 
 	Parameter EIGHT_STAGED_SBOX bound to: no - type: string 
 	Parameter N bound to: 1 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'aes_ctrl_lsfr' [/home/user/DOM_AES_CW305/hdl/aes_ctrl_lsfr.vhdl:94]
-INFO: [Synth 8-256] done synthesizing module 'aes_ctrl_lsfr' (0#1) [/home/user/DOM_AES_CW305/hdl/aes_ctrl_lsfr.vhdl:94]
-INFO: [Synth 8-638] synthesizing module 'rcon' [/home/user/DOM_AES_CW305/hdl/rcon.vhdl:67]
+INFO: [Synth 8-638] synthesizing module 'aes_ctrl_lsfr' [/home/raoar/RP_WS/DOM_AES_CW305/hdl/aes_ctrl_lsfr.vhdl:94]
+INFO: [Synth 8-256] done synthesizing module 'aes_ctrl_lsfr' (0#1) [/home/raoar/RP_WS/DOM_AES_CW305/hdl/aes_ctrl_lsfr.vhdl:94]
+INFO: [Synth 8-638] synthesizing module 'rcon' [/home/raoar/RP_WS/DOM_AES_CW305/hdl/rcon.vhdl:67]
 	Parameter PERFECTLY_INTERLEAVED bound to: yes - type: string 
-INFO: [Synth 8-256] done synthesizing module 'rcon' (0#1) [/home/user/DOM_AES_CW305/hdl/rcon.vhdl:67]
-INFO: [Synth 8-638] synthesizing module 'aes_sbox' [/home/user/DOM_AES_CW305/hdl/aes_sbox.vhdl:80]
+INFO: [Synth 8-256] done synthesizing module 'rcon' (0#1) [/home/raoar/RP_WS/DOM_AES_CW305/hdl/rcon.vhdl:67]
+INFO: [Synth 8-638] synthesizing module 'aes_sbox' [/home/raoar/RP_WS/DOM_AES_CW305/hdl/aes_sbox.vhdl:80]
 	Parameter PIPELINED bound to: yes - type: string 
 	Parameter EIGHT_STAGED bound to: no - type: string 
 	Parameter SHARES bound to: 2 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'lin_map' [/home/user/DOM_AES_CW305/hdl/lin_map.vhdl:63]
+INFO: [Synth 8-638] synthesizing module 'lin_map' [/home/raoar/RP_WS/DOM_AES_CW305/hdl/lin_map.vhdl:63]
 	Parameter MATRIX_SEL bound to: X^-1 - type: string 
-INFO: [Synth 8-256] done synthesizing module 'lin_map' (0#1) [/home/user/DOM_AES_CW305/hdl/lin_map.vhdl:63]
-INFO: [Synth 8-638] synthesizing module 'square_scaler' [/home/user/DOM_AES_CW305/hdl/square_scaler.vhdl:60]
-INFO: [Synth 8-256] done synthesizing module 'square_scaler' (0#1) [/home/user/DOM_AES_CW305/hdl/square_scaler.vhdl:60]
-INFO: [Synth 8-638] synthesizing module 'lin_map__parameterized0' [/home/user/DOM_AES_CW305/hdl/lin_map.vhdl:63]
+INFO: [Synth 8-256] done synthesizing module 'lin_map' (0#1) [/home/raoar/RP_WS/DOM_AES_CW305/hdl/lin_map.vhdl:63]
+INFO: [Synth 8-638] synthesizing module 'square_scaler' [/home/raoar/RP_WS/DOM_AES_CW305/hdl/square_scaler.vhdl:60]
+INFO: [Synth 8-256] done synthesizing module 'square_scaler' (0#1) [/home/raoar/RP_WS/DOM_AES_CW305/hdl/square_scaler.vhdl:60]
+INFO: [Synth 8-638] synthesizing module 'lin_map__parameterized0' [/home/raoar/RP_WS/DOM_AES_CW305/hdl/lin_map.vhdl:63]
 	Parameter MATRIX_SEL bound to: MX - type: string 
-INFO: [Synth 8-256] done synthesizing module 'lin_map__parameterized0' (0#1) [/home/user/DOM_AES_CW305/hdl/lin_map.vhdl:63]
-INFO: [Synth 8-638] synthesizing module 'real_dom_shared_mul_gf4' [/home/user/DOM_AES_CW305/hdl/real_dom_shared_mul_gf4.vhdl:74]
+INFO: [Synth 8-256] done synthesizing module 'lin_map__parameterized0' (0#1) [/home/raoar/RP_WS/DOM_AES_CW305/hdl/lin_map.vhdl:63]
+INFO: [Synth 8-638] synthesizing module 'real_dom_shared_mul_gf4' [/home/raoar/RP_WS/DOM_AES_CW305/hdl/real_dom_shared_mul_gf4.vhdl:74]
 	Parameter PIPELINED bound to: yes - type: string 
 	Parameter FIRST_ORDER_OPTIMIZATION bound to: yes - type: string 
 	Parameter SHARES bound to: 2 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'gf2_mul' [/home/user/DOM_AES_CW305/hdl/gf2_mul.vhdl:74]
+INFO: [Synth 8-638] synthesizing module 'gf2_mul' [/home/raoar/RP_WS/DOM_AES_CW305/hdl/gf2_mul.vhdl:74]
 	Parameter N bound to: 4 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'gf2_mul' (0#1) [/home/user/DOM_AES_CW305/hdl/gf2_mul.vhdl:74]
-INFO: [Synth 8-256] done synthesizing module 'real_dom_shared_mul_gf4' (0#1) [/home/user/DOM_AES_CW305/hdl/real_dom_shared_mul_gf4.vhdl:74]
-INFO: [Synth 8-638] synthesizing module 'inverter' [/home/user/DOM_AES_CW305/hdl/inverter.vhdl:77]
+INFO: [Synth 8-256] done synthesizing module 'gf2_mul' (0#1) [/home/raoar/RP_WS/DOM_AES_CW305/hdl/gf2_mul.vhdl:74]
+INFO: [Synth 8-256] done synthesizing module 'real_dom_shared_mul_gf4' (0#1) [/home/raoar/RP_WS/DOM_AES_CW305/hdl/real_dom_shared_mul_gf4.vhdl:74]
+INFO: [Synth 8-638] synthesizing module 'inverter' [/home/raoar/RP_WS/DOM_AES_CW305/hdl/inverter.vhdl:77]
 	Parameter VARIANT bound to: Masked - type: string 
 	Parameter PIPELINED bound to: yes - type: string 
 	Parameter EIGHT_STAGED_SBOX bound to: no - type: string 
 	Parameter SHARES bound to: 2 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'real_dom_shared_mul_gf2' [/home/user/DOM_AES_CW305/hdl/real_dom_shared_mul_gf2.vhdl:74]
+INFO: [Synth 8-638] synthesizing module 'real_dom_shared_mul_gf2' [/home/raoar/RP_WS/DOM_AES_CW305/hdl/real_dom_shared_mul_gf2.vhdl:74]
 	Parameter PIPELINED bound to: yes - type: string 
 	Parameter FIRST_ORDER_OPTIMIZATION bound to: yes - type: string 
 	Parameter SHARES bound to: 2 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'gf2_mul__parameterized0' [/home/user/DOM_AES_CW305/hdl/gf2_mul.vhdl:74]
+INFO: [Synth 8-638] synthesizing module 'gf2_mul__parameterized0' [/home/raoar/RP_WS/DOM_AES_CW305/hdl/gf2_mul.vhdl:74]
 	Parameter N bound to: 2 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'gf2_mul__parameterized0' (0#1) [/home/user/DOM_AES_CW305/hdl/gf2_mul.vhdl:74]
-INFO: [Synth 8-256] done synthesizing module 'real_dom_shared_mul_gf2' (0#1) [/home/user/DOM_AES_CW305/hdl/real_dom_shared_mul_gf2.vhdl:74]
-INFO: [Synth 8-256] done synthesizing module 'inverter' (0#1) [/home/user/DOM_AES_CW305/hdl/inverter.vhdl:77]
-INFO: [Synth 8-638] synthesizing module 'shared_mul_gf4' [/home/user/DOM_AES_CW305/hdl/shared_mul_gf4.vhdl:71]
+INFO: [Synth 8-256] done synthesizing module 'gf2_mul__parameterized0' (0#1) [/home/raoar/RP_WS/DOM_AES_CW305/hdl/gf2_mul.vhdl:74]
+INFO: [Synth 8-256] done synthesizing module 'real_dom_shared_mul_gf2' (0#1) [/home/raoar/RP_WS/DOM_AES_CW305/hdl/real_dom_shared_mul_gf2.vhdl:74]
+INFO: [Synth 8-256] done synthesizing module 'inverter' (0#1) [/home/raoar/RP_WS/DOM_AES_CW305/hdl/inverter.vhdl:77]
+INFO: [Synth 8-638] synthesizing module 'shared_mul_gf4' [/home/raoar/RP_WS/DOM_AES_CW305/hdl/shared_mul_gf4.vhdl:71]
 	Parameter PIPELINED bound to: yes - type: string 
 	Parameter SHARES bound to: 2 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'shared_mul_gf4' (0#1) [/home/user/DOM_AES_CW305/hdl/shared_mul_gf4.vhdl:71]
-INFO: [Synth 8-256] done synthesizing module 'aes_sbox' (0#1) [/home/user/DOM_AES_CW305/hdl/aes_sbox.vhdl:80]
-INFO: [Synth 8-638] synthesizing module 'aes_key_regs' [/home/user/DOM_AES_CW305/hdl/aes_key_regs.vhdl:66]
+INFO: [Synth 8-256] done synthesizing module 'shared_mul_gf4' (0#1) [/home/raoar/RP_WS/DOM_AES_CW305/hdl/shared_mul_gf4.vhdl:71]
+INFO: [Synth 8-256] done synthesizing module 'aes_sbox' (0#1) [/home/raoar/RP_WS/DOM_AES_CW305/hdl/aes_sbox.vhdl:80]
+INFO: [Synth 8-638] synthesizing module 'aes_key_regs' [/home/raoar/RP_WS/DOM_AES_CW305/hdl/aes_key_regs.vhdl:66]
 	Parameter PERFECTLY_INTERLEAVED bound to: yes - type: string 
-INFO: [Synth 8-256] done synthesizing module 'aes_key_regs' (0#1) [/home/user/DOM_AES_CW305/hdl/aes_key_regs.vhdl:66]
-INFO: [Synth 8-638] synthesizing module 'aes_state_regs' [/home/user/DOM_AES_CW305/hdl/aes_state_regs.vhdl:64]
-INFO: [Synth 8-638] synthesizing module 'mix_columns' [/home/user/DOM_AES_CW305/hdl/mix_columns.vhdl:65]
-INFO: [Synth 8-256] done synthesizing module 'mix_columns' (0#1) [/home/user/DOM_AES_CW305/hdl/mix_columns.vhdl:65]
-INFO: [Synth 8-256] done synthesizing module 'aes_state_regs' (0#1) [/home/user/DOM_AES_CW305/hdl/aes_state_regs.vhdl:64]
-INFO: [Synth 8-256] done synthesizing module 'aes_top' (0#1) [/home/user/DOM_AES_CW305/hdl/aes_top.vhdl:88]
-INFO: [Synth 8-256] done synthesizing module 'aes_dom_verilog_wrapper' (0#1) [/home/user/DOM_AES_CW305/hdl/aes_dom_verilog_wrapper.vhdl:66]
-INFO: [Synth 8-6155] done synthesizing module 'aes_dom_wrapper' (0#1) [/home/user/DOM_AES_CW305/hdl/aes_dom_wrapper.v:22]
-INFO: [Synth 8-6155] done synthesizing module 'cw305_top' (0#1) [/home/user/DOM_AES_CW305/hdl/cw305_top.v:32]
-WARNING: [Synth 8-3848] Net O_cipherin in module/entity cw305_reg_aes does not have driver. [/home/user/DOM_AES_CW305/hdl/cw305_reg_aes.v:74]
-WARNING: [Synth 8-3848] Net FinishedxSO in module/entity rcon does not have driver. [/home/user/DOM_AES_CW305/hdl/rcon.vhdl:60]
-WARNING: [Synth 8-7137] Register prng_state_reg in module aes_dom_wrapper has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/user/DOM_AES_CW305/hdl/aes_dom_wrapper.v:136]
+INFO: [Synth 8-256] done synthesizing module 'aes_key_regs' (0#1) [/home/raoar/RP_WS/DOM_AES_CW305/hdl/aes_key_regs.vhdl:66]
+INFO: [Synth 8-638] synthesizing module 'aes_state_regs' [/home/raoar/RP_WS/DOM_AES_CW305/hdl/aes_state_regs.vhdl:64]
+INFO: [Synth 8-638] synthesizing module 'mix_columns' [/home/raoar/RP_WS/DOM_AES_CW305/hdl/mix_columns.vhdl:65]
+INFO: [Synth 8-256] done synthesizing module 'mix_columns' (0#1) [/home/raoar/RP_WS/DOM_AES_CW305/hdl/mix_columns.vhdl:65]
+INFO: [Synth 8-256] done synthesizing module 'aes_state_regs' (0#1) [/home/raoar/RP_WS/DOM_AES_CW305/hdl/aes_state_regs.vhdl:64]
+INFO: [Synth 8-256] done synthesizing module 'aes_top' (0#1) [/home/raoar/RP_WS/DOM_AES_CW305/hdl/aes_top.vhdl:88]
+INFO: [Synth 8-256] done synthesizing module 'aes_dom_verilog_wrapper' (0#1) [/home/raoar/RP_WS/DOM_AES_CW305/hdl/aes_dom_verilog_wrapper.vhdl:66]
+INFO: [Synth 8-6155] done synthesizing module 'aes_dom_wrapper' (0#1) [/home/raoar/RP_WS/DOM_AES_CW305/hdl/aes_dom_wrapper.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'cw305_top' (0#1) [/home/raoar/RP_WS/DOM_AES_CW305/hdl/cw305_top.v:32]
+WARNING: [Synth 8-3848] Net O_cipherin in module/entity cw305_reg_aes does not have driver. [/home/raoar/RP_WS/DOM_AES_CW305/hdl/cw305_reg_aes.v:74]
+WARNING: [Synth 8-3848] Net FinishedxSO in module/entity rcon does not have driver. [/home/raoar/RP_WS/DOM_AES_CW305/hdl/rcon.vhdl:60]
+WARNING: [Synth 8-7137] Register prng_state_reg in module aes_dom_wrapper has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [/home/raoar/RP_WS/DOM_AES_CW305/hdl/aes_dom_wrapper.v:136]
 WARNING: [Synth 8-7129] Port BxDI[1][1] in module real_dom_shared_mul_gf2 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port BxDI[1][0] in module real_dom_shared_mul_gf2 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port BxDI[1][3] in module real_dom_shared_mul_gf4 is either unconnected or has no load
@@ -227,24 +228,24 @@ WARNING: [Synth 8-7129] Port O_cipherin[36] in module cw305_reg_aes is either un
 WARNING: [Synth 8-7129] Port O_cipherin[35] in module cw305_reg_aes is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2713.238 ; gain = 460.672 ; free physical = 10070 ; free virtual = 15526
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1747.662; parent = 1388.446; children = 419.442
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 5098.598; parent = 2713.238; children = 2385.359
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 3071.371 ; gain = 459.625 ; free physical = 71707 ; free virtual = 107412
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2169.148; parent = 1957.489; children = 211.659
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4662.551; parent = 3071.375; children = 1591.176
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2731.723 ; gain = 479.156 ; free physical = 10062 ; free virtual = 15518
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1752.068; parent = 1388.446; children = 419.442
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 5117.082; parent = 2731.723; children = 2385.359
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 3086.215 ; gain = 474.469 ; free physical = 71721 ; free virtual = 107426
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2169.148; parent = 1957.489; children = 211.659
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4677.395; parent = 3086.219; children = 1591.176
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2731.723 ; gain = 479.156 ; free physical = 10061 ; free virtual = 15518
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1752.068; parent = 1388.446; children = 419.442
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 5117.082; parent = 2731.723; children = 2385.359
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 3086.215 ; gain = 474.469 ; free physical = 71721 ; free virtual = 107426
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2169.148; parent = 1957.489; children = 211.659
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4677.395; parent = 3086.219; children = 1591.176
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2738.812 ; gain = 0.051 ; free physical = 10061 ; free virtual = 15518
+Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 3092.152 ; gain = 0.000 ; free physical = 71719 ; free virtual = 107424
 INFO: [Netlist 29-17] Analyzing 3 Unisim elements for replacement
 WARNING: [Netlist 29-432] The IBUFG primitive 'U_clocks/clkibuf' has been retargeted to an IBUF primitive only. No BUFG will be added. If a global buffer is intended, please instantiate an available global clock primitive from the current architecture.
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -252,43 +253,43 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [/home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.srcs/constrs_1/new/cw305.xdc]
-Finished Parsing XDC File [/home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.srcs/constrs_1/new/cw305.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.srcs/constrs_1/new/cw305.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/cw305_top_propImpl.xdc].
+Parsing XDC File [/home/raoar/RP_WS/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.srcs/constrs_1/new/cw305.xdc]
+Finished Parsing XDC File [/home/raoar/RP_WS/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.srcs/constrs_1/new/cw305.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/raoar/RP_WS/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.srcs/constrs_1/new/cw305.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/cw305_top_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/cw305_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2901.012 ; gain = 0.000 ; free physical = 10033 ; free virtual = 15494
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3240.965 ; gain = 0.000 ; free physical = 71604 ; free virtual = 107309
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 2 instances were transformed.
   BUFGMUX_CTRL => BUFGCTRL (inverted pins: S0): 1 instance 
   IBUFG => IBUF: 1 instance 
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2901.121 ; gain = 0.090 ; free physical = 10033 ; free virtual = 15494
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3240.965 ; gain = 0.000 ; free physical = 71600 ; free virtual = 107305
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
-INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/home/user/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [/cad/xilinx/vivado2022.2/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2901.242 ; gain = 648.676 ; free physical = 10034 ; free virtual = 15497
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1889.965; parent = 1476.395; children = 419.442
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 5261.324; parent = 2875.965; children = 2385.359
+Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 3240.965 ; gain = 629.219 ; free physical = 71670 ; free virtual = 107376
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2169.148; parent = 1957.489; children = 211.659
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4800.129; parent = 3208.953; children = 1591.176
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
-Loading part: xc7a35tftg256-2
+Loading part: xc7a100tftg256-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2901.242 ; gain = 648.676 ; free physical = 10034 ; free virtual = 15497
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1889.965; parent = 1476.395; children = 419.442
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 5261.449; parent = 2876.090; children = 2385.359
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 3240.965 ; gain = 629.219 ; free physical = 71670 ; free virtual = 107376
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2169.148; parent = 1957.489; children = 211.659
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4800.129; parent = 3208.953; children = 1591.176
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 2901.242 ; gain = 648.676 ; free physical = 10034 ; free virtual = 15497
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1889.965; parent = 1476.395; children = 419.442
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 5261.492; parent = 2876.133; children = 2385.359
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 3240.965 ; gain = 629.219 ; free physical = 71670 ; free virtual = 107376
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2169.148; parent = 1957.489; children = 211.659
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4800.129; parent = 3208.953; children = 1591.176
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'start_seq_reg' in module 'aes_dom_wrapper'
 ---------------------------------------------------------------------------------------------------
@@ -301,9 +302,9 @@ INFO: [Synth 8-802] inferred FSM for state register 'start_seq_reg' in module 'a
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'start_seq_reg' using encoding 'one-hot' in module 'aes_dom_wrapper'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 2901.242 ; gain = 648.676 ; free physical = 10041 ; free virtual = 15504
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1889.965; parent = 1476.395; children = 419.442
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 5262.980; parent = 2877.621; children = 2385.359
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 3240.965 ; gain = 629.219 ; free physical = 71687 ; free virtual = 107395
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2169.148; parent = 1957.489; children = 211.659
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4800.129; parent = 3208.953; children = 1591.176
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -355,8 +356,8 @@ Finished RTL Component Statistics
 Start Part Resource Summary
 ---------------------------------------------------------------------------------
 Part Resources:
-DSPs: 90 (col length:60)
-BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
@@ -365,33 +366,33 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2901.242 ; gain = 648.676 ; free physical = 10065 ; free virtual = 15530
-Synthesis current peak Physical Memory [PSS] (MB): peak = 1893.712; parent = 1480.937; children = 419.442
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 5264.625; parent = 2879.266; children = 2385.359
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 3240.965 ; gain = 629.219 ; free physical = 71635 ; free virtual = 107351
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2208.990; parent = 1997.813; children = 211.659
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4800.129; parent = 3208.953; children = 1591.176
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 2923.488 ; gain = 670.922 ; free physical = 9929 ; free virtual = 15394
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2086.806; parent = 1675.581; children = 419.442
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 5308.848; parent = 2923.488; children = 2385.359
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 3240.965 ; gain = 629.219 ; free physical = 71518 ; free virtual = 107242
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2283.904; parent = 2072.728; children = 211.659
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4800.129; parent = 3208.953; children = 1591.176
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 2931.793 ; gain = 679.227 ; free physical = 9808 ; free virtual = 15273
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2178.638; parent = 1767.421; children = 419.442
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 5317.152; parent = 2931.793; children = 2385.359
+Finished Timing Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:30 . Memory (MB): peak = 3240.965 ; gain = 629.219 ; free physical = 71425 ; free virtual = 107150
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2375.400; parent = 2164.224; children = 211.659
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4814.793; parent = 3223.617; children = 1591.176
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 2948.031 ; gain = 695.465 ; free physical = 9795 ; free virtual = 15260
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2183.728; parent = 1772.511; children = 419.442
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 5333.391; parent = 2948.031; children = 2385.359
+Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 3240.965 ; gain = 629.219 ; free physical = 71426 ; free virtual = 107152
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2390.111; parent = 2178.935; children = 211.659
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4822.801; parent = 3231.625; children = 1591.176
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -409,49 +410,49 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 2948.211 ; gain = 695.645 ; free physical = 9801 ; free virtual = 15266
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2183.985; parent = 1772.769; children = 419.442
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 5333.570; parent = 2948.211; children = 2385.359
+Finished IO Insertion : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 3240.965 ; gain = 629.219 ; free physical = 71423 ; free virtual = 107149
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2390.111; parent = 2178.935; children = 211.659
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4822.801; parent = 3231.625; children = 1591.176
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 2948.227 ; gain = 695.660 ; free physical = 9801 ; free virtual = 15266
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2184.001; parent = 1772.784; children = 419.442
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 5333.586; parent = 2948.227; children = 2385.359
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:30 ; elapsed = 00:00:33 . Memory (MB): peak = 3240.965 ; gain = 629.219 ; free physical = 71423 ; free virtual = 107149
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2390.111; parent = 2178.935; children = 211.659
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4822.801; parent = 3231.625; children = 1591.176
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 2948.281 ; gain = 695.715 ; free physical = 9801 ; free virtual = 15265
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2186.165; parent = 1774.948; children = 419.442
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 5333.641; parent = 2948.281; children = 2385.359
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 3240.965 ; gain = 629.219 ; free physical = 71413 ; free virtual = 107139
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2390.111; parent = 2178.935; children = 211.659
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4822.801; parent = 3231.625; children = 1591.176
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 2948.293 ; gain = 695.727 ; free physical = 9801 ; free virtual = 15265
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2186.177; parent = 1774.960; children = 419.442
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 5333.652; parent = 2948.293; children = 2385.359
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 3240.965 ; gain = 629.219 ; free physical = 71421 ; free virtual = 107147
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2390.111; parent = 2178.935; children = 211.659
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4822.801; parent = 3231.625; children = 1591.176
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 2948.312 ; gain = 695.746 ; free physical = 9801 ; free virtual = 15265
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2186.419; parent = 1775.202; children = 419.442
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 5333.672; parent = 2948.312; children = 2385.359
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 3240.965 ; gain = 629.219 ; free physical = 71415 ; free virtual = 107141
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2390.111; parent = 2178.935; children = 211.659
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4822.801; parent = 3231.625; children = 1591.176
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 2948.320 ; gain = 695.754 ; free physical = 9801 ; free virtual = 15265
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2186.431; parent = 1775.214; children = 419.442
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 5333.680; parent = 2948.320; children = 2385.359
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 3240.965 ; gain = 629.219 ; free physical = 71413 ; free virtual = 107139
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2390.111; parent = 2178.935; children = 211.659
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4822.801; parent = 3231.625; children = 1591.176
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
@@ -504,21 +505,21 @@ Report Cell Usage:
 |21    |OBUF         |     5|
 +------+-------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 2948.355 ; gain = 695.789 ; free physical = 9801 ; free virtual = 15265
-Synthesis current peak Physical Memory [PSS] (MB): peak = 2186.466; parent = 1775.249; children = 419.442
-Synthesis current peak Virtual Memory [VSS] (MB): peak = 5333.715; parent = 2948.355; children = 2385.359
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 3240.965 ; gain = 629.219 ; free physical = 71408 ; free virtual = 107134
+Synthesis current peak Physical Memory [PSS] (MB): peak = 2390.111; parent = 2178.935; children = 211.659
+Synthesis current peak Virtual Memory [VSS] (MB): peak = 4822.801; parent = 3231.625; children = 1591.176
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 142 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 2948.391 ; gain = 526.305 ; free physical = 9800 ; free virtual = 15265
-Synthesis Optimization Complete : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 2948.418 ; gain = 695.824 ; free physical = 9800 ; free virtual = 15265
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 3240.965 ; gain = 474.469 ; free physical = 71463 ; free virtual = 107189
+Synthesis Optimization Complete : Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 3240.965 ; gain = 629.219 ; free physical = 71471 ; free virtual = 107198
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.06 . Memory (MB): peak = 2948.457 ; gain = 0.004 ; free physical = 10011 ; free virtual = 15479
+Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 3240.965 ; gain = 0.000 ; free physical = 71584 ; free virtual = 107310
 INFO: [Netlist 29-17] Analyzing 111 Unisim elements for replacement
 WARNING: [Netlist 29-432] The IBUFG primitive 'U_clocks/clkibuf' has been retargeted to an IBUF primitive only. No BUFG will be added. If a global buffer is intended, please instantiate an available global clock primitive from the current architecture.
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2973.539 ; gain = 0.000 ; free physical = 10111 ; free virtual = 15579
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3258.602 ; gain = 0.000 ; free physical = 71526 ; free virtual = 107252
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 10 instances were transformed.
   BUFGMUX_CTRL => BUFGCTRL (inverted pins: S0): 1 instance 
@@ -527,9 +528,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 
 Synth Design complete, checksum: 50594fad
 INFO: [Common 17-83] Releasing license: Synthesis
-85 Infos, 107 Warnings, 0 Critical Warnings and 0 Errors encountered.
+86 Infos, 107 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:37 . Memory (MB): peak = 2973.539 ; gain = 1071.590 ; free physical = 10367 ; free virtual = 15835
-INFO: [Common 17-1381] The checkpoint '/home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.runs/synth_1/cw305_top.dcp' has been generated.
+synth_design: Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 3258.602 ; gain = 991.371 ; free physical = 71806 ; free virtual = 107533
+INFO: [Common 17-1381] The checkpoint '/home/raoar/RP_WS/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.runs/synth_1/cw305_top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file cw305_top_utilization_synth.rpt -pb cw305_top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Mar  6 15:17:22 2026...
+INFO: [Common 17-206] Exiting Vivado at Fri Mar  6 17:34:48 2026...

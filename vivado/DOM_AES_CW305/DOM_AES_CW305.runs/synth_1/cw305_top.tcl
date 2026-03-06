@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "/home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.runs/synth_1/cw305_top.tcl"
+  variable script "/home/raoar/RP_WS/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.runs/synth_1/cw305_top.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,49 +70,48 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 2
 OPTRACE "Creating in-memory project" START { }
-create_project -in_memory -part xc7a35tftg256-2
+create_project -in_memory -part xc7a100tftg256-2
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir /home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.cache/wt [current_project]
-set_property parent.project_path /home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.xpr [current_project]
+set_property webtalk.parent_dir /home/raoar/RP_WS/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.cache/wt [current_project]
+set_property parent.project_path /home/raoar/RP_WS/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo /home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.cache/ip [current_project]
+set_property ip_output_repo /home/raoar/RP_WS/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
-  /home/user/DOM_AES_CW305/hdl/aes_dom_wrapper.v
-  /home/user/DOM_AES_CW305/hdl/cdc_pulse.v
-  /home/user/DOM_AES_CW305/hdl/clocks.v
-  /home/user/DOM_AES_CW305/hdl/cw305_aes_defines.v
-  /home/user/DOM_AES_CW305/hdl/cw305_reg_aes.v
-  /home/user/DOM_AES_CW305/hdl/cw305_usb_reg_fe.v
-  /home/user/DOM_AES_CW305/hdl/cw305_top.v
+  /home/raoar/RP_WS/DOM_AES_CW305/hdl/aes_dom_wrapper.v
+  /home/raoar/RP_WS/DOM_AES_CW305/hdl/cdc_pulse.v
+  /home/raoar/RP_WS/DOM_AES_CW305/hdl/clocks.v
+  /home/raoar/RP_WS/DOM_AES_CW305/hdl/cw305_aes_defines.v
+  /home/raoar/RP_WS/DOM_AES_CW305/hdl/cw305_reg_aes.v
+  /home/raoar/RP_WS/DOM_AES_CW305/hdl/cw305_usb_reg_fe.v
+  /home/raoar/RP_WS/DOM_AES_CW305/hdl/cw305_top.v
 }
 read_vhdl -library xil_defaultlib {
-  /home/user/DOM_AES_CW305/hdl/aes_ctrl_lsfr.vhdl
-  /home/user/DOM_AES_CW305/hdl/aes_ctrl_lsfr_23_cycles.vhdl
-  /home/user/DOM_AES_CW305/hdl/masked_aes_pkg.vhdl
-  /home/user/DOM_AES_CW305/hdl/rcon.vhdl
-  /home/user/DOM_AES_CW305/hdl/lin_map.vhdl
-  /home/user/DOM_AES_CW305/hdl/square_scaler.vhdl
-  /home/user/DOM_AES_CW305/hdl/gf2_mul.vhdl
-  /home/user/DOM_AES_CW305/hdl/shared_mul_gf4.vhdl
-  /home/user/DOM_AES_CW305/hdl/shared_mul_gf2.vhdl
-  /home/user/DOM_AES_CW305/hdl/real_dom_shared_mul_gf2.vhdl
-  /home/user/DOM_AES_CW305/hdl/inverter.vhdl
-  /home/user/DOM_AES_CW305/hdl/real_dom_shared_mul_gf4.vhdl
-  /home/user/DOM_AES_CW305/hdl/aes_sbox.vhdl
-  /home/user/DOM_AES_CW305/hdl/aes_key_regs.vhdl
-  /home/user/DOM_AES_CW305/hdl/mix_columns.vhdl
-  /home/user/DOM_AES_CW305/hdl/aes_state_regs.vhdl
-  /home/user/DOM_AES_CW305/hdl/aes_top.vhdl
-  /home/user/DOM_AES_CW305/hdl/aes_dom_verilog_wrapper.vhdl
+  /home/raoar/RP_WS/DOM_AES_CW305/hdl/aes_ctrl_lsfr.vhdl
+  /home/raoar/RP_WS/DOM_AES_CW305/hdl/aes_ctrl_lsfr_23_cycles.vhdl
+  /home/raoar/RP_WS/DOM_AES_CW305/hdl/masked_aes_pkg.vhdl
+  /home/raoar/RP_WS/DOM_AES_CW305/hdl/rcon.vhdl
+  /home/raoar/RP_WS/DOM_AES_CW305/hdl/lin_map.vhdl
+  /home/raoar/RP_WS/DOM_AES_CW305/hdl/square_scaler.vhdl
+  /home/raoar/RP_WS/DOM_AES_CW305/hdl/gf2_mul.vhdl
+  /home/raoar/RP_WS/DOM_AES_CW305/hdl/shared_mul_gf4.vhdl
+  /home/raoar/RP_WS/DOM_AES_CW305/hdl/shared_mul_gf2.vhdl
+  /home/raoar/RP_WS/DOM_AES_CW305/hdl/real_dom_shared_mul_gf2.vhdl
+  /home/raoar/RP_WS/DOM_AES_CW305/hdl/inverter.vhdl
+  /home/raoar/RP_WS/DOM_AES_CW305/hdl/real_dom_shared_mul_gf4.vhdl
+  /home/raoar/RP_WS/DOM_AES_CW305/hdl/aes_sbox.vhdl
+  /home/raoar/RP_WS/DOM_AES_CW305/hdl/aes_key_regs.vhdl
+  /home/raoar/RP_WS/DOM_AES_CW305/hdl/mix_columns.vhdl
+  /home/raoar/RP_WS/DOM_AES_CW305/hdl/aes_state_regs.vhdl
+  /home/raoar/RP_WS/DOM_AES_CW305/hdl/aes_top.vhdl
+  /home/raoar/RP_WS/DOM_AES_CW305/hdl/aes_dom_verilog_wrapper.vhdl
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -123,16 +122,16 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc /home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.srcs/constrs_1/new/cw305.xdc
-set_property used_in_implementation false [get_files /home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.srcs/constrs_1/new/cw305.xdc]
+read_xdc /home/raoar/RP_WS/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.srcs/constrs_1/new/cw305.xdc
+set_property used_in_implementation false [get_files /home/raoar/RP_WS/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.srcs/constrs_1/new/cw305.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental /home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.srcs/utils_1/imports/synth_1/cw305_top.dcp
+read_checkpoint -auto_incremental -incremental /home/raoar/RP_WS/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.srcs/utils_1/imports/synth_1/cw305_top.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
-synth_design -top cw305_top -part xc7a35tftg256-2
+synth_design -top cw305_top -part xc7a100tftg256-2
 OPTRACE "synth_design" END { }
 if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
  send_msg_id runtcl-6 info "Synthesis results are not added to the cache due to CRITICAL_WARNING"

@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:/home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.srcs/constrs_1/new/cw305.xdc rfile:../../../DOM_AES_CW305.srcs/constrs_1/new/cw305.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:/home/raoar/RP_WS/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.srcs/constrs_1/new/cw305.xdc rfile:../../../DOM_AES_CW305.srcs/constrs_1/new/cw305.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:6 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN T2 [get_ports led1]
 set_property src_info {type:XDC file:1 line:9 export:INPUT save:INPUT read:READ} [current_design]

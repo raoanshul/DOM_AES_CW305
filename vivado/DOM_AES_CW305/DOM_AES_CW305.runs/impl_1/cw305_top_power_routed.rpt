@@ -1,11 +1,11 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date             : Fri Mar  6 15:18:27 2026
-| Host             : 47d8709a4d53 running 64-bit Ubuntu 22.04.5 LTS
+| Date             : Fri Mar  6 17:35:58 2026
+| Host             : ralab06.informatik.uni-stuttgart.de running 64-bit AlmaLinux release 8.10 (Cerulean Leopard)
 | Command          : report_power -file cw305_top_power_routed.rpt -pb cw305_top_power_summary_routed.pb -rpx cw305_top_power_routed.rpx
 | Design           : cw305_top
-| Device           : xc7a35tftg256-2
+| Device           : xc7a100tftg256-2
 | Design State     : routed
 | Grade            : commercial
 | Process          : typical
@@ -30,12 +30,12 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.114        |
+| Total On-Chip Power (W)  | 0.141        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
 | Dynamic (W)              | 0.043        |
-| Device Static (W)        | 0.072        |
-| Effective TJA (C/W)      | 4.9          |
+| Device Static (W)        | 0.097        |
+| Effective TJA (C/W)      | 4.6          |
 | Max Ambient (C)          | 84.4         |
 | Junction Temperature (C) | 25.6         |
 | Confidence Level         | Low          |
@@ -52,18 +52,18 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
-| Clocks                  |     0.009 |        5 |       --- |             --- |
+| Clocks                  |     0.010 |        5 |       --- |             --- |
 | Slice Logic             |     0.013 |     3919 |       --- |             --- |
-|   LUT as Logic          |     0.012 |     1260 |     20800 |            6.06 |
-|   Register              |    <0.001 |     2198 |     41600 |            5.28 |
-|   LUT as Shift Register |    <0.001 |       48 |      9600 |            0.50 |
-|   CARRY4                |    <0.001 |       13 |      8150 |            0.16 |
-|   F7/F8 Muxes           |    <0.001 |       87 |     32600 |            0.27 |
+|   LUT as Logic          |     0.012 |     1259 |     63400 |            1.99 |
+|   Register              |    <0.001 |     2198 |    126800 |            1.73 |
+|   LUT as Shift Register |    <0.001 |       48 |     19000 |            0.25 |
+|   CARRY4                |    <0.001 |       13 |     15850 |            0.08 |
+|   F7/F8 Muxes           |    <0.001 |       87 |     63400 |            0.14 |
 |   Others                |     0.000 |       30 |       --- |             --- |
-| Signals                 |     0.012 |     2949 |       --- |             --- |
+| Signals                 |     0.013 |     2951 |       --- |             --- |
 | I/O                     |     0.008 |       44 |       170 |           25.88 |
-| Static Power            |     0.072 |          |           |                 |
-| Total                   |     0.114 |          |           |                 |
+| Static Power            |     0.097 |          |           |                 |
+| Total                   |     0.141 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,9 +73,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.045 |       0.035 |      0.010 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |       NA    | Unspecified | NA         |
-| Vcco33    |       3.300 |     0.003 |       0.002 |      0.001 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.051 |       0.036 |      0.015 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.018 |       0.000 |      0.018 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     0.006 |       0.002 |      0.004 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -113,7 +113,7 @@ Table of Contents
 
 +-----------------------+--------------------------+
 | Ambient Temp (C)      | 25.0                     |
-| ThetaJA (C/W)         | 4.9                      |
+| ThetaJA (C/W)         | 4.6                      |
 | Airflow (LFM)         | 250                      |
 | Heat Sink             | medium (Medium Profile)  |
 | ThetaSA (C/W)         | 4.6                      |
@@ -147,7 +147,7 @@ Table of Contents
 | cw305_top       |     0.043 |
 |   U_reg_aes     |     0.005 |
 |   U_usb_reg_fe  |     0.001 |
-|   u_aes_dom     |     0.027 |
+|   u_aes_dom     |     0.028 |
 |     u_aes_dom   |     0.025 |
 |       u_aes_top |     0.025 |
 +-----------------+-----------+

@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "/home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.runs/impl_1/cw305_top.tcl"
+  variable script "/home/raoar/RP_WS/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.runs/impl_1/cw305_top.tcl"
   variable category "vivado_impl"
 }
 
@@ -122,26 +122,26 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param chipscope.maxJobs 2
+  set_param chipscope.maxJobs 8
 OPTRACE "create in-memory project" START { }
-  create_project -in_memory -part xc7a35tftg256-2
+  create_project -in_memory -part xc7a100tftg256-2
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir /home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.cache/wt [current_project]
-  set_property parent.project_path /home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.xpr [current_project]
-  set_property ip_output_repo /home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.cache/ip [current_project]
+  set_property webtalk.parent_dir /home/raoar/RP_WS/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.cache/wt [current_project]
+  set_property parent.project_path /home/raoar/RP_WS/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.xpr [current_project]
+  set_property ip_output_repo /home/raoar/RP_WS/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet /home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.runs/synth_1/cw305_top.dcp
+  add_files -quiet /home/raoar/RP_WS/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.runs/synth_1/cw305_top.dcp
 OPTRACE "read constraints: implementation" START { }
-  read_xdc /home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.srcs/constrs_1/new/cw305.xdc
+  read_xdc /home/raoar/RP_WS/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.srcs/constrs_1/new/cw305.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }
-  link_design -top cw305_top -part xc7a35tftg256-2 
+  link_design -top cw305_top -part xc7a100tftg256-2 
 OPTRACE "link_design" END { }
 OPTRACE "gray box cells" START { }
 OPTRACE "gray box cells" END { }
@@ -225,34 +225,6 @@ if {$rc} {
 }
 
 OPTRACE "Phase: Place Design" END { }
-OPTRACE "Phase: Physical Opt Design" START { ROLLUP_AUTO }
-start_step phys_opt_design
-set ACTIVE_STEP phys_opt_design
-set rc [catch {
-  create_msg_db phys_opt_design.pb
-OPTRACE "read constraints: phys_opt_design" START { }
-OPTRACE "read constraints: phys_opt_design" END { }
-OPTRACE "phys_opt_design" START { }
-  phys_opt_design 
-OPTRACE "phys_opt_design" END { }
-OPTRACE "read constraints: phys_opt_design_post" START { }
-OPTRACE "read constraints: phys_opt_design_post" END { }
-OPTRACE "Post-Place Phys Opt Design: write_checkpoint" START { CHECKPOINT }
-  write_checkpoint -force cw305_top_physopt.dcp
-OPTRACE "Post-Place Phys Opt Design: write_checkpoint" END { }
-OPTRACE "phys_opt_design report" START { REPORT }
-OPTRACE "phys_opt_design report" END { }
-  close_msg_db -file phys_opt_design.pb
-} RESULT]
-if {$rc} {
-  step_failed phys_opt_design
-  return -code error $RESULT
-} else {
-  end_step phys_opt_design
-  unset ACTIVE_STEP 
-}
-
-OPTRACE "Phase: Physical Opt Design" END { }
 OPTRACE "Phase: Route Design" START { ROLLUP_AUTO }
 start_step route_design
 set ACTIVE_STEP route_design

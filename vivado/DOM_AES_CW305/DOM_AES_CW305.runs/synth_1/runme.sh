@@ -7,9 +7,9 @@
 # 
 
 if [ -z "$PATH" ]; then
-  PATH=/home/user/Xilinx/Vivado/2022.2/ids_lite/ISE/bin/lin64:/home/user/Xilinx/Vivado/2022.2/bin
+  PATH=/cad/xilinx/vivado2022.2/Vivado/2022.2/ids_lite/ISE/bin/lin64:/cad/xilinx/vivado2022.2/Vivado/2022.2/bin
 else
-  PATH=/home/user/Xilinx/Vivado/2022.2/ids_lite/ISE/bin/lin64:/home/user/Xilinx/Vivado/2022.2/bin:$PATH
+  PATH=/cad/xilinx/vivado2022.2/Vivado/2022.2/ids_lite/ISE/bin/lin64:/cad/xilinx/vivado2022.2/Vivado/2022.2/bin:$PATH
 fi
 export PATH
 
@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/user/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.runs/synth_1'
+HD_PWD='/home/raoar/RP_WS/DOM_AES_CW305/vivado/DOM_AES_CW305/DOM_AES_CW305.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
