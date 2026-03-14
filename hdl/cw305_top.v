@@ -92,6 +92,7 @@ module cw305_top #(
 `endif
 
     wire [pKEY_WIDTH-1:0] crypt_key;
+    wire [pPT_WIDTH-1:0] crypt_iv;
     wire [pPT_WIDTH-1:0] crypt_textout;
     wire [pCT_WIDTH-1:0] crypt_cipherin;
     wire crypt_init;
@@ -182,6 +183,7 @@ module cw305_top #(
        .O_user_led              (led3),
        .O_key                   (crypt_key),
        .O_textin                (crypt_textout),
+       .O_iv                     (crypt_iv),                    
        .O_cipherin              (),                     // unused
        .O_start                 (crypt_start)
     );
@@ -237,6 +239,7 @@ module cw305_top #(
        .rst             (reset),
        .pt_parallel     (aes_dom_pt),
        .key_parallel    (aes_dom_key),
+       .prng_iv         (crypt_iv),
        .ct_parallel     (aes_dom_ct),
        .load            (aes_dom_load),
        .busy            (aes_dom_busy),

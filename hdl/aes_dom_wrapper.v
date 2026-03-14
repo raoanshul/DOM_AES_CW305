@@ -37,7 +37,8 @@ module aes_dom_wrapper #(
     // Parallel inputs (directly from registers)
     input  wire [pPT_WIDTH-1:0]     pt_parallel,    // Full 128-bit plaintext
     input  wire [pKEY_WIDTH-1:0]    key_parallel,   // Full 128-bit key
-    
+    input  wire [pPT_WIDTH-1:0]     prng_iv,        // 128-bit PRNG IV (lower 80 bits used)
+
     // Parallel output
     output wire [pCT_WIDTH-1:0]     ct_parallel,    // Full 128-bit ciphertext
     
@@ -68,6 +69,7 @@ module aes_dom_wrapper #(
     // Latched parallel data
     reg [127:0] pt_latched;
     reg [127:0] key_latched;
+    reg [127:0] iv_latched;
     reg [127:0] ct_collected;
     
     // Byte selection counter
@@ -83,13 +85,21 @@ module aes_dom_wrapper #(
     // The DOM LFSR doesn't return to IDLE after encryption completes.
     // Reset Signal needed for the Encryption to return to IDLE state
     reg        dom_soft_rst;
-    reg [1:0]  start_seq;           // 2-bit sequencer: 0=idle, 1=reset, 2=start, 3=running
+    reg        prng_rst;
+    reg [2:0]  start_seq;
     
     // CT collection state
     reg        first_done_seen;     // tracks unwanted 1st dom_done
     reg        collecting_ct;
     reg [4:0]  ct_byte_count;
     reg        done_r;
+
+    localparam START_IDLE       = 3'd0;
+    localparam START_PRNG_RESET = 3'd1;
+    localparam START_PRNG_WARM  = 3'd2;
+    localparam START_DOM_RESET  = 3'd3;
+    localparam START_DOM_PULSE  = 3'd4;
+    localparam START_RUNNING    = 3'd5;
     
     // =========================================================================
     // Byte Selection
@@ -122,44 +132,90 @@ module aes_dom_wrapper #(
     assign dom_key_share[0] = current_key_byte ^ key_mask;
     assign dom_key_share[1] = key_mask;
     
-    // =========================================================================
-    // PRNG (LFSR-based)
-    // =========================================================================
+    // // =========================================================================
+    // // PRNG (LFSR-based)
+    // // =========================================================================
     
+    // wire [ZMUL_WIDTH-1:0] zmul1, zmul2, zmul3;
+    // wire [ZINV_WIDTH-1:0] zinv1, zinv2, zinv3;
+    // wire [BMUL_WIDTH-1:0] bmul1;
+    // wire [BINV_WIDTH-1:0] binv1, binv2, binv3;
+    
+    // reg [63:0] prng_state;  
+    
+    // wire lfsr_bit = prng_state[63] ^ prng_state[62] ^ prng_state[60] ^ prng_state[59];
+    
+    // always @(posedge clk or posedge rst) begin
+    //     if (rst) begin
+    //         prng_state <= (prng_seed != 64'b0) ? prng_seed : 64'hDEADBEEFCAFEBABE;
+    //     end else if (running) begin
+    //         prng_state <= {prng_state[62:0], lfsr_bit};
+    //     end
+    // end
+    
+    // assign pt_mask  = prng_state[7:0];
+    // assign key_mask = prng_state[15:8];
+    
+    // assign zmul1 = prng_state[19:16];
+    // assign zmul2 = prng_state[23:20];
+    // assign zmul3 = prng_state[27:24];
+    
+    // assign zinv1 = prng_state[29:28];
+    // assign zinv2 = prng_state[31:30];
+    // assign zinv3 = prng_state[33:32];
+    
+    // assign bmul1 = prng_state[41:34];
+    
+    // assign binv1 = prng_state[45:42];
+    // assign binv2 = prng_state[49:46];
+    // assign binv3 = prng_state[53:50];
+
+    // =========================================================================
+    // PRNG (Trivium-based) 
+    // =========================================================================
     wire [ZMUL_WIDTH-1:0] zmul1, zmul2, zmul3;
     wire [ZINV_WIDTH-1:0] zinv1, zinv2, zinv3;
     wire [BMUL_WIDTH-1:0] bmul1;
     wire [BINV_WIDTH-1:0] binv1, binv2, binv3;
-    
-    reg [63:0] prng_state;  
-    
-    wire lfsr_bit = prng_state[63] ^ prng_state[62] ^ prng_state[60] ^ prng_state[59];
-    
-    always @(posedge clk or posedge rst) begin
-        if (rst) begin
-            prng_state <= (prng_seed != 64'b0) ? prng_seed : 64'hDEADBEEFCAFEBABE;
-        end else if (running) begin
-            prng_state <= {prng_state[62:0], lfsr_bit};
-        end
-    end
-    
-    assign pt_mask  = prng_state[7:0];
-    assign key_mask = prng_state[15:8];
-    
-    assign zmul1 = prng_state[19:16];
-    assign zmul2 = prng_state[23:20];
-    assign zmul3 = prng_state[27:24];
-    
-    assign zinv1 = prng_state[29:28];
-    assign zinv2 = prng_state[31:30];
-    assign zinv3 = prng_state[33:32];
-    
-    assign bmul1 = prng_state[41:34];
-    
-    assign binv1 = prng_state[45:42];
-    assign binv2 = prng_state[49:46];
-    assign binv3 = prng_state[53:50];
+    wire [79:0] prng_key = {16'h0000, prng_seed};
+    wire [79:0] prng_iv_trimmed = iv_latched[79:0];
+    wire        prng_busy;
+    wire        prng_ready = ~prng_busy;
+    wire        prng_en = (start_seq == START_PRNG_WARM) || running;
+ 
+    // --- Trivium instance ---
+    wire [63:0] prng_bits;
+ 
+    trivium_prng #(
+        .BITS_PER_CYCLE(64)
+    ) u_prng (
+        .clk       (clk),
+        .rst       (rst || prng_rst),
+        .key       (prng_key),       // 80-bit key input (new port)
+        .iv        (prng_iv_trimmed),
+        .en        (prng_en),
+                    // Enable during warm-up AND during encryption
+        .init_busy (prng_busy),
+        .rng_out   (prng_bits)
+    );
 
+    assign pt_mask  = prng_bits[7:0];       // 8 bits
+    assign key_mask = prng_bits[15:8];      // 8 bits
+ 
+    assign zmul1 = prng_bits[19:16];        // 4 bits
+    assign zmul2 = prng_bits[23:20];        // 4 bits
+    assign zmul3 = prng_bits[27:24];        // 4 bits
+ 
+    assign zinv1 = prng_bits[29:28];        // 2 bits
+    assign zinv2 = prng_bits[31:30];        // 2 bits
+    assign zinv3 = prng_bits[33:32];        // 2 bits
+ 
+    assign bmul1 = prng_bits[41:34];        // 8 bits
+ 
+    assign binv1 = prng_bits[45:42];        // 4 bits
+    assign binv2 = prng_bits[49:46];        // 4 bits
+    assign binv3 = prng_bits[53:50];  
+    
     // =========================================================================
     // Latch Inputs
     // =========================================================================
@@ -168,9 +224,11 @@ module aes_dom_wrapper #(
         if (rst) begin
             pt_latched  <= 128'b0;
             key_latched <= 128'b0;
+            iv_latched  <= 128'b0;
         end else if (load && !running) begin
             pt_latched  <= pt_parallel;
             key_latched <= key_parallel;
+            iv_latched  <= prng_iv;
         end
     end
     
@@ -197,7 +255,8 @@ module aes_dom_wrapper #(
             cycle_counter   <= 8'd0;
             dom_start_r     <= 1'b0;
             dom_soft_rst    <= 1'b0;
-            start_seq       <= 2'd0;
+            prng_rst        <= 1'b0;
+            start_seq       <= START_IDLE;
             first_done_seen <= 1'b0;
             collecting_ct   <= 1'b0;
             ct_byte_count   <= 5'd0;
@@ -206,6 +265,7 @@ module aes_dom_wrapper #(
         end else begin
             dom_start_r  <= 1'b0;  // default: no start pulse
             dom_soft_rst <= 1'b0;  // default: no reset pulse
+            prng_rst     <= 1'b0;  // default: no PRNG reset pulse
             done_r       <= 1'b0;  // default: no done pulse
 
             // =====================================================================
@@ -223,30 +283,39 @@ module aes_dom_wrapper #(
             // =====================================================================
             
             case (start_seq)
-                2'd0: begin  // IDLE - wait for load
+                START_IDLE: begin
                     if (load && !running) begin
                         running       <= 1'b1;
                         cycle_counter <= 8'd0;
-                        dom_soft_rst  <= 1'b1;   // pulse reset to DOM core
-                        start_seq     <= 2'd1;
+                        prng_rst      <= 1'b1;
+                        start_seq     <= START_PRNG_RESET;
                         first_done_seen <= 1'b0;
                         collecting_ct   <= 1'b0;
                         ct_byte_count   <= 5'd0;
                     end
                 end
                 
-                2'd1: begin  // RESET phase - DOM core is being reset this cycle
-                    // LFSR is now reset to STATE_0, safe to pulse Start
+                START_PRNG_RESET: begin
+                    start_seq <= START_PRNG_WARM;
+                end
+                
+                START_PRNG_WARM: begin
+                    if (prng_ready) begin
+                        dom_soft_rst <= 1'b1;
+                        start_seq    <= START_DOM_RESET;
+                    end
+                end
+                
+                START_DOM_RESET: begin
                     dom_start_r <= 1'b1;
-                    start_seq   <= 2'd2;
+                    start_seq   <= START_DOM_PULSE;
                 end
-                
-                2'd2: begin  
-                    // LFSR transitions STATE_0 to STATE_1 at end of this cycle
-                    start_seq <= 2'd3;
+
+                START_DOM_PULSE: begin
+                    start_seq <= START_RUNNING;
                 end
-                
-                2'd3: begin  // RUNNING phase - normal encryption operation
+
+                START_RUNNING: begin
                     // --- Byte counter ---
                     // Counter=0 @ STATE_1
                     // counter=1 with STATE_2
@@ -271,7 +340,7 @@ module aes_dom_wrapper #(
                             running       <= 1'b0;
                             collecting_ct <= 1'b0;
                             done_r        <= 1'b1;
-                            start_seq     <= 2'd0;  // back to idle for next encryption
+                            start_seq     <= START_IDLE;
                         end
                     end
                 end

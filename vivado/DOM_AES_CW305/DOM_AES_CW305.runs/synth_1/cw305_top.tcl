@@ -70,6 +70,7 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
+set_param chipscope.maxJobs 8
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tftg256-2
 
@@ -91,6 +92,7 @@ read_verilog -library xil_defaultlib {
   /home/raoar/RP_WS/DOM_AES_CW305/hdl/cw305_aes_defines.v
   /home/raoar/RP_WS/DOM_AES_CW305/hdl/cw305_reg_aes.v
   /home/raoar/RP_WS/DOM_AES_CW305/hdl/cw305_usb_reg_fe.v
+  /home/raoar/RP_WS/DOM_AES_CW305/hdl/trivium_prng.v
   /home/raoar/RP_WS/DOM_AES_CW305/hdl/cw305_top.v
 }
 read_vhdl -library xil_defaultlib {

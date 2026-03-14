@@ -72,6 +72,7 @@ module cw305_reg_aes #(
    output wire [pKEY_WIDTH-1:0]                 O_key,
    output wire [pPT_WIDTH-1:0]                  O_textin,
    output wire [pCT_WIDTH-1:0]                  O_cipherin,
+   output wire [pPT_WIDTH-1:0]                  O_iv,       // New output for PRNG IV
    output wire                                  O_start   /* High for one crypto_clk cycle, indicates text ready. */
 
 );
@@ -83,6 +84,7 @@ module cw305_reg_aes #(
    reg  [pPT_WIDTH-1:0]         reg_crypt_textout;
    reg  [pCT_WIDTH-1:0]         reg_crypt_cipherout;
    reg                          reg_crypt_go_pulse;
+   reg  [pPT_WIDTH-1:0]         reg_crypt_iv;
    wire                         reg_crypt_go_pulse_crypt;
 
    reg                          busy_usb;
@@ -95,6 +97,7 @@ module cw305_reg_aes #(
 
    (* ASYNC_REG = "TRUE" *) reg  [pKEY_WIDTH-1:0] reg_crypt_key_crypt;
    (* ASYNC_REG = "TRUE" *) reg  [pPT_WIDTH-1:0] reg_crypt_textin_crypt;
+   (* ASYNC_REG = "TRUE" *) reg  [pPT_WIDTH-1:0] reg_crypt_iv_crypt;
    (* ASYNC_REG = "TRUE" *) reg  [pPT_WIDTH-1:0] reg_crypt_textout_usb;
    (* ASYNC_REG = "TRUE" *) reg  [pCT_WIDTH-1:0] reg_crypt_cipherout_usb;
    (* ASYNC_REG = "TRUE" *) reg  [1:0] go_pipe;
@@ -120,6 +123,7 @@ module cw305_reg_aes #(
        reg_crypt_textout_usb   = reg_crypt_textout;
        reg_crypt_key_crypt     = reg_crypt_key;
        reg_crypt_textin_crypt  = reg_crypt_textin;
+      reg_crypt_iv_crypt      = reg_crypt_iv;
    end
 `else
    always @(posedge usb_clk) begin
@@ -129,12 +133,14 @@ module cw305_reg_aes #(
    always @(posedge crypto_clk) begin
        reg_crypt_key_crypt <= reg_crypt_key;
        reg_crypt_textin_crypt <= reg_crypt_textin;
+      reg_crypt_iv_crypt <= reg_crypt_iv;
    end
 `endif
 
    assign O_textin = reg_crypt_textin_crypt;
    assign O_key = reg_crypt_key_crypt;
    assign O_start = crypt_go_pulse || reg_crypt_go_pulse_crypt;
+   assign O_iv = reg_crypt_iv_crypt;
 
    //////////////////////////////////
    // read logic:
@@ -155,6 +161,7 @@ module cw305_reg_aes #(
             `REG_CRYPT_TEXTOUT:         reg_read_data = reg_crypt_textout_usb[reg_bytecnt*8 +: 8];
             `REG_CRYPT_CIPHEROUT:       reg_read_data = reg_crypt_cipherout_usb[reg_bytecnt*8 +: 8];
             `REG_BUILDTIME:             reg_read_data = buildtime[reg_bytecnt*8 +: 8];
+            `REG_CRYPT_IV:              reg_read_data = reg_crypt_iv[reg_bytecnt*8 +: 8]; // Read from IV register
             default:                    reg_read_data = 0;
          endcase
       end
@@ -175,6 +182,7 @@ module cw305_reg_aes #(
          O_clksettings <= 0;
          O_user_led <= 0;
          reg_crypt_go_pulse <= 1'b0;
+         reg_crypt_iv <= {pPT_WIDTH{1'b0}};
       end
 
       else begin
@@ -185,6 +193,7 @@ module cw305_reg_aes #(
                `REG_CRYPT_TEXTIN:       reg_crypt_textin[reg_bytecnt*8 +: 8] <= write_data;
                `REG_CRYPT_CIPHERIN:     reg_crypt_cipherin[reg_bytecnt*8 +: 8] <= write_data;
                `REG_CRYPT_KEY:          reg_crypt_key[reg_bytecnt*8 +: 8] <= write_data;
+               `REG_CRYPT_IV:           reg_crypt_iv[reg_bytecnt*8 +: 8] <= write_data;
             endcase
          end
          // REG_CRYPT_GO register is special: writing it creates a pulse. Reading it gives you the "busy" status.

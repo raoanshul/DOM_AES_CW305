@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (lin64) Build 3671981 Fri Oct 14 04:59:54 MDT 2022
-| Date         : Fri Mar  6 17:35:57 2026
+| Date         : Sat Mar 14 12:08:51 2026
 | Host         : ralab06.informatik.uni-stuttgart.de running 64-bit AlmaLinux release 8.10 (Cerulean Leopard)
 | Command      : report_methodology -file cw305_top_methodology_drc_routed.rpt -pb cw305_top_methodology_drc_routed.pb -rpx cw305_top_methodology_drc_routed.rpx
 | Design       : cw305_top
